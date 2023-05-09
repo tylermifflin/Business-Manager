@@ -1,0 +1,25 @@
+{
+  "name": "business-manager",
+  "version": "1.0.0",
+  "description": "## Table of Contents * [Description](#description) * [Installation](#installation) * [Usage](#usage) * [License](#license) * [Contributing](#contributing) * [Tests](#tests) * [Questions](#questions) ## Description Using ## Installation tbd ## Usage tbd ## License",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylermifflin/Business-Manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tylermifflin/Business-Manager/issues"
+  },
+  "homepage": "https://github.com/tylermifflin/Business-Manager#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer":"^8.2.4",
+    "mysql2": "^2.2.5"
+  }
+}
