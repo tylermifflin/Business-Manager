@@ -6,6 +6,7 @@ USE manager_db;
 CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30) NOT NULL
+    ON DELETE SET NULL
 );
 
 CREATE TABLE role (
@@ -14,6 +15,7 @@ CREATE TABLE role (
     salary DECIMAL(10, 2) NOT NULL,
     department_id INT NOT NULL,
     FOREIGN KEY (department_id) REFERENCES department(id)
+    ON DELETE SET NULL
 );
 
 CREATE TABLE employee (
@@ -24,5 +26,6 @@ CREATE TABLE employee (
     manager_id INT,
     FOREIGN KEY (role_id) REFERENCES role(id),
     FOREIGN KEY (manager_id) REFERENCES employee(id)
+    ON DELETE SET NULL
 );
 
