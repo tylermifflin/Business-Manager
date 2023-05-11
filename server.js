@@ -81,3 +81,35 @@ function viewAllRoles() {
     });
 }
 
+// function to add an employee
+function addEmployee() {
+    inquirer
+    .prompt([
+        {
+            name: 'first_name',
+            type: 'input',
+            message: 'What is the employee\'s first name?'
+        },
+        {
+            name: 'last_name',
+            type: 'input',
+            message: 'What is the employee\'s last name?'
+        },
+        {
+            name: 'role_id',
+            type: 'input',
+            message: 'What is the employee\'s role id?'
+        },
+        {
+            name: 'manager_id',
+            type: 'input',
+            message: 'What is the employee\'s manager id?'
+        }
+    ])
+    .then((answer) => {
+        db.query('INSERT INTO employee SET ?', answer, function (err, results) {
+            console.log(results);
+            start();
+        });
+    });
+}
