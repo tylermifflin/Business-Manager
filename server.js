@@ -159,3 +159,19 @@ function addRole() {
         });
     });
 }
+
+// function to update an employee's role
+function updateEmployeeRole() {
+    inquirer
+    .promtpt([
+        {
+            name: 'id',
+            type: 'input',
+            message: 'What is the employee\'s id?'
+        },
+        {
+            name: 'role_id',
+            type: 'input',
+            message: 'What is the employee\'s new role id?'
+        }
+    ])
