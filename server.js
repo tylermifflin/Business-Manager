@@ -76,7 +76,7 @@ function viewAllDepartments() {
 // function to view all roles
 function viewAllRoles() {
     db.query('SELECT * FROM role', function (err, results) {
-        console.table(results);
+        console.table(results,);
         start();
     });
 }
@@ -154,7 +154,7 @@ function addRole() {
     ])
     .then((answer) => {
         db.query('INSERT INTO role SET ?', answer, function (err, results) {
-            console.log(results);
+            console.table(results);
             start();
         });
     });
@@ -177,7 +177,7 @@ function updateEmployeeRole() {
     ])
     .then((answer) => {
         db.query('UPDATE employee SET role_id = ? WHERE id = ?', [answer.role_id, answer.id], function (err, results) {
-            console.log(results);
+            console.table(results);
             start();
         });
     });
