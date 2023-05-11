@@ -131,3 +131,24 @@ function addDepartment() {
         });
     });
 }
+
+// function to add a role
+function addRole() {
+    inquirer
+    .prompt([
+        {
+            name: 'title',
+            type: 'input',
+            message: 'What is the role\'s title?'
+        },
+        {
+            name: 'salary',
+            type: 'input',
+            message: 'What is the role\'s salary?'
+        },
+        {
+            name: 'department_id',
+            type: 'input',
+            message: 'What is the role\'s department id?'
+        }
+    ])
