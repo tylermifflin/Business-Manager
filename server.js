@@ -163,7 +163,7 @@ function addRole() {
 // function to update an employee's role
 function updateEmployeeRole() {
     inquirer
-    .promtpt([
+    .prompt([
         {
             name: 'id',
             type: 'input',
