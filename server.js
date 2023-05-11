@@ -152,3 +152,10 @@ function addRole() {
             message: 'What is the role\'s department id?'
         }
     ])
+    .then((answer) => {
+        db.query('INSERT INTO role SET ?', answer, function (err, results) {
+            console.log(results);
+            start();
+        });
+    });
+}
