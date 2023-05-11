@@ -16,3 +16,13 @@ const db = mysql.createConnection(
     },
     console.log('Connected to the manager_db database.')
 );
+
+// function to start the application
+function start() {
+    inquirer
+    .prompt({
+        name: 'start',
+        type: 'list',
+        message: 'What would you like to do?',
+        choices: ['View All Employees', 'View All Departments', 'View All Roles', 'Add Employee', 'Add Department', 'Add Role', 'Update Employee Role', 'Exit']
+    })
