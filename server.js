@@ -73,3 +73,11 @@ function viewAllDepartments() {
     });
 }
 
+// function to view all roles
+function viewAllRoles() {
+    db.query('SELECT * FROM role', function (err, results) {
+        console.log(results);
+        start();
+    });
+}
+
