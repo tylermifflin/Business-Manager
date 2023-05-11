@@ -56,3 +56,12 @@ function start() {
     }
     )
 }
+
+// function to view all employees
+function viewAllEmployees() {
+    db.query('SELECT * FROM employee', function (err, results) {
+        console.log(results);
+        start();
+    });
+}
+
