@@ -65,3 +65,11 @@ function viewAllEmployees() {
     });
 }
 
+// function to view all departments
+function viewAllDepartments() {
+    db.query('SELECT * FROM department', function (err, results) {
+        console.log(results);
+        start();
+    });
+}
+
