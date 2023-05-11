@@ -68,7 +68,7 @@ function viewAllEmployees() {
 // function to view all departments
 function viewAllDepartments() {
     db.query('SELECT * FROM department', function (err, results) {
-        console.log(results);
+        console.table(results);
         start();
     });
 }
@@ -76,7 +76,7 @@ function viewAllDepartments() {
 // function to view all roles
 function viewAllRoles() {
     db.query('SELECT * FROM role', function (err, results) {
-        console.log(results);
+        console.table(results);
         start();
     });
 }
@@ -108,7 +108,7 @@ function addEmployee() {
     ])
     .then((answer) => {
         db.query('INSERT INTO employee SET ?', answer, function (err, results) {
-            console.log(results);
+            console.table(results);
             start();
         });
     });
@@ -126,7 +126,7 @@ function addDepartment() {
     ])
     .then((answer) => {
         db.query('INSERT INTO department SET ?', answer, function (err, results) {
-            console.log(results);
+            console.table(results);
             start();
         });
     });
