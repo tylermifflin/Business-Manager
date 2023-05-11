@@ -175,3 +175,10 @@ function updateEmployeeRole() {
             message: 'What is the employee\'s new role id?'
         }
     ])
+    .then((answer) => {
+        db.query('UPDATE employee SET role_id = ? WHERE id = ?', [answer.role_id, answer.id], function (err, results) {
+            console.log(results);
+            start();
+        });
+    });
+}
