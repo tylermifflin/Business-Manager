@@ -182,3 +182,11 @@ function updateEmployeeRole() {
         });
     });
 }
+
+// function to initialize app
+function init() {
+    start();
+}
+
+// function call to initialize app
+init();
