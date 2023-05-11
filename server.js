@@ -57,10 +57,10 @@ function start() {
     )
 }
 
-// function to view all employees
+// function to view all employees and view the table in the console
 function viewAllEmployees() {
     db.query('SELECT * FROM employee', function (err, results) {
-        console.log(results);
+        console.table(results);
         start();
     });
 }
