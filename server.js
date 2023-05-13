@@ -54,14 +54,6 @@ function start() {
     )
 }
 
-// function to view all employees and view the table in the console
-function viewAllEmployees() {
-    db.query('SELECT * FROM employee', function (err, results) {
-        console.table(results);
-        start();
-    });
-}
-
 // function to view all departments
 function viewAllDepartments() {
     db.query('SELECT * FROM department', function (err, results) {
@@ -78,36 +70,11 @@ function viewAllRoles() {
     });
 }
 
-// function to add an employee
-function addEmployee() {
-    inquirer
-    .prompt([
-        {
-            name: 'first_name',
-            type: 'input',
-            message: 'What is the employee\'s first name?'
-        },
-        {
-            name: 'last_name',
-            type: 'input',
-            message: 'What is the employee\'s last name?'
-        },
-        {
-            name: 'role_id',
-            type: 'input',
-            message: 'What is the employee\'s role id?'
-        },
-        {
-            name: 'manager_id',
-            type: 'input',
-            message: 'What is the employee\'s manager id?'
-        }
-    ])
-    .then((answer) => {
-        db.query('INSERT INTO employee SET ?', answer, function (err, results) {
-            console.table(results);
-            start();
-        });
+// function to view all employees and view the table in the console
+function viewAllEmployees() {
+    db.query('SELECT * FROM employee', function (err, results) {
+        console.table(results);
+        start();
     });
 }
 
@@ -156,6 +123,40 @@ function addRole() {
         });
     });
 }
+
+// function to add an employee
+function addEmployee() {
+    inquirer
+    .prompt([
+        {
+            name: 'first_name',
+            type: 'input',
+            message: 'What is the employee\'s first name?'
+        },
+        {
+            name: 'last_name',
+            type: 'input',
+            message: 'What is the employee\'s last name?'
+        },
+        {
+            name: 'role_id',
+            type: 'input',
+            message: 'What is the employee\'s role id?'
+        },
+        {
+            name: 'manager_id',
+            type: 'input',
+            message: 'What is the employee\'s manager id?'
+        }
+    ])
+    .then((answer) => {
+        db.query('INSERT INTO employee SET ?', answer, function (err, results) {
+            console.table(results);
+            start();
+        });
+    });
+}
+
 
 // function to update an employee's role
 function updateEmployeeRole() {
