@@ -111,9 +111,9 @@ function addRole() {
             message: 'What is the role\'s salary?'
         },
         {
-            name: 'department_id',
+            name: 'department',
             type: 'input',
-            message: 'What is the role\'s department id?'
+            message: 'What is the role\'s department?'
         }
     ])
     .then((answer) => {
@@ -139,14 +139,14 @@ function addEmployee() {
             message: 'What is the employee\'s last name?'
         },
         {
-            name: 'role_id',
+            name: 'role',
             type: 'input',
-            message: 'What is the employee\'s role id?'
+            message: 'What is the employee\'s role?'
         },
         {
-            name: 'manager_id',
+            name: 'manager',
             type: 'input',
-            message: 'What is the employee\'s manager id?'
+            message: 'Who is the employee\'s manager?'
         }
     ])
     .then((answer) => {
