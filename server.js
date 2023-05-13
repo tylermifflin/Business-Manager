@@ -1,8 +1,5 @@
-// calling express, inquirer, fs, path, and mysql
-//const express = require('express');
+// calling inquirer and mysql
 const inquirer = require('inquirer');
-//const fs = require('fs');
-//const path = require('path');
 const mysql = require('mysql2');
 
 // connect to database
@@ -24,21 +21,18 @@ function start() {
         name: 'start',
         type: 'list',
         message: 'What would you like to do?',
-        choices: ['View All Employees', 'View All Departments', 'View All Roles', 'Add Employee', 'Add Department', 'Add Role', 'Update Employee Role', 'Exit']
+        choices: [ 'View All Departments', 'View All Roles', 'View All Employees', 'Add Department', 'Add Role', 'Add Employee','Update Employee Role', 'Exit']
     })
     .then((answer) => {
         switch (answer.start) {
-            case 'View All Employees':
-                viewAllEmployees();
-                break;
             case 'View All Departments':
                 viewAllDepartments();
                 break;
             case 'View All Roles':
                 viewAllRoles();
                 break;
-            case 'Add Employee':
-                addEmployee();
+            case 'View All Employees':
+                viewAllEmployees();
                 break;
             case 'Add Department':
                 addDepartment();
@@ -46,6 +40,9 @@ function start() {
             case 'Add Role':
                 addRole();
                 break;
+            case 'Add Employee':
+                    addEmployee();
+                    break;    
             case 'Update Employee Role':
                 updateEmployeeRole();
                 break;
