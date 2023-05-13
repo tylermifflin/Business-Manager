@@ -113,7 +113,7 @@ function addRole() {
         {
             name: 'department',
             type: 'input',
-            message: 'What is the role\'s department?'
+            message: 'Which department does this role belong to?'
         }
     ])
     .then((answer) => {
@@ -140,7 +140,7 @@ function addEmployee() {
         },
         {
             name: 'role',
-            type: 'input',
+            type: 'list',
             message: 'What is the employee\'s role?'
         },
         {
@@ -163,14 +163,14 @@ function updateEmployeeRole() {
     inquirer
     .prompt([
         {
-            name: 'id',
+            name: 'name',
             type: 'input',
-            message: 'What is the employee\'s id?'
+            message: 'What is the employee\'s name'
         },
         {
-            name: 'role_id',
+            name: 'role',
             type: 'input',
-            message: 'What is the employee\'s new role id?'
+            message: 'What is the employee\'s new role ?'
         }
     ])
     .then((answer) => {
