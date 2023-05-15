@@ -62,10 +62,10 @@ function viewAllDepartments() {
     });
 }
 
-// function to view all roles
+// function to view all roles using my query.sql to join the tables for role and department
 function viewAllRoles() {
-    db.query('SELECT * FROM role', function (err, results) {
-        console.table(results,);
+    db.query('SELECT role.id, role.title, department.name AS department, role.salary FROM department JOIN role ON department_id = department.id', function (err, results) {
+        console.table(results);
         start();
     });
 }
