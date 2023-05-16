@@ -112,11 +112,14 @@ function addRole() {
             message: 'What is the role\'s salary?'
         },
         {
-            name: 'department',
+            name: 'department_id',
             type: 'input',
-            message: 'Which department does this role belong to?'
-        }
+            message: 'What is the role\'s department id?'
+
+        },
+       
     ])
+  // put the answers into the role table
     .then((answer) => {
         db.query('INSERT INTO role SET ?', answer, function (err, results) {
             console.table(results);
@@ -140,14 +143,14 @@ function addEmployee() {
             message: 'What is the employee\'s last name?'
         },
         {
-            name: 'role',
-            type: 'list',
-            message: 'What is the employee\'s role?'
+            name: 'role_id',
+            type: 'input',
+            message: 'What is the employee\'s role id?'
         },
         {
-            name: 'manager',
+            name: 'manager_id',
             type: 'input',
-            message: 'Who is the employee\'s manager?'
+            message: 'What is the employee\'s manager id?'
         }
     ])
     .then((answer) => {
@@ -164,24 +167,42 @@ function updateEmployeeRole() {
     inquirer
     .prompt([
         {
-            name: 'name',
+            name: 'id',
             type: 'input',
-            message: 'What is the employee\'s name'
+            message: 'What is the employee\'s id?'
         },
         {
-            name: 'role',
+            name: 'first_name',
             type: 'input',
-            message: 'What is the employee\'s new role ?'
+            message: 'What is the employee\'s first name?'
+        },
+        {
+            name: 'last_name',
+            type: 'input',
+            message: 'What is the employee\'s last name?'
+        },
+        {
+            name: 'role_id',
+            type: 'input',
+            message: 'What is the employee\'s role id?'
+        },
+        {
+            name: 'manager_id',
+            type: 'input',
+            message: 'What is the employee\'s manager id?'
         }
     ])
-    .then((answer) => {
-        db.query('UPDATE employee SET role_id = ? WHERE id = ?', [answer.role_id, answer.id], function (err, results) {
-            console.table(results);
-            start();
-        });
+    .then((answers) => {
+        const { id, first_name, last_name, role_id, manager_id } = answers;
+        const query = `UPDATE employee SET first_name = ?, last_name = ?, role_id = ?, manager_id = ? WHERE id = ?`;
+        const values = [first_name, last_name, role_id, manager_id, id];
+        db.query(query, values, function (err, results) {
+                console.table(results);
+                start();
+            }
+        );
     });
 }
-
 // function to initialize app
 function init() {
     start();
