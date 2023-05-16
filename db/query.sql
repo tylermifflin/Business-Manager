@@ -13,7 +13,7 @@ LEFT JOIN employee manager ON employee.manager_id = manager.id;
 --query to update an employee's role
 UPDATE employee
 SET first_name = 'Jack',
-last_name = 'Mihoff',
+last_name = 'Sparrow',
 role_id = 2,
 manager_id = 1
 WHERE id= 2;
