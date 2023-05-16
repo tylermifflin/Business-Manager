@@ -1,3 +1,4 @@
+-- create database, use database, create tables department, role, and employee using the acceptance criteria given
 DROP DATABASE IF EXISTS manager_db;
 CREATE DATABASE manager_db;
 

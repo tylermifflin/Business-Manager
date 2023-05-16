@@ -1,3 +1,4 @@
+-- This file is used to pre-populate the database with some data to make the app run smoothly
 INSERT INTO department (name) 
 VALUES("Sales"),
       ("Engineering"),

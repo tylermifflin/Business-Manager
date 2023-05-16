@@ -1,4 +1,4 @@
-// calling inquirer and mysql
+// calling inquirer and mysql and console.table
 const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const cTable = require('console.table');
@@ -15,7 +15,7 @@ const db = mysql.createConnection(
     console.log('Connected to the manager_db database.')
 );
 
-// function to start the application
+// function to start the application, using a list type to display the choices, and then using a switch statement to run the function based on the choice
 function start() {
     inquirer
     .prompt({
@@ -89,6 +89,7 @@ function addDepartment() {
             message: 'What is the department\'s name?'
         }
     ])
+    // put the answers into the department table
     .then((answer) => {
         db.query('INSERT INTO department SET ?', answer, function (err, results) {
             console.table(results);
@@ -153,6 +154,7 @@ function addEmployee() {
             message: 'What is the employee\'s manager id?'
         }
     ])
+    // put the answers into the employee table
     .then((answer) => {
         db.query('INSERT INTO employee SET ?', answer, function (err, results) {
             console.table(results);
@@ -162,7 +164,7 @@ function addEmployee() {
 }
 
 
-// function to update an employee's role
+// function to update an employee's role, need to use the id to update the employee's role
 function updateEmployeeRole() {
     inquirer
     .prompt([
@@ -192,6 +194,7 @@ function updateEmployeeRole() {
             message: 'What is the employee\'s manager id?'
         }
     ])
+    // used my query to update the employee's role in query.sql
     .then((answers) => {
         const { id, first_name, last_name, role_id, manager_id } = answers;
         const query = `UPDATE employee SET first_name = ?, last_name = ?, role_id = ?, manager_id = ? WHERE id = ?`;
